@@ -27,14 +27,15 @@ app.get("/pokemon/:pokename/", async (req: Request, res: Response) => {
   res.send(data);
 });
 
-app.get("/pokemon/:pokename/front", async (req: Request, res: Response) => {
+app.get("/pokemon/:pokename/sprite", async (req: Request, res: Response) => {
   const pokename = req.params.pokename;
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}`)
   const data = await response.json();
 
   const frontImageUrl = data.sprites.front_default;
+  const backImageUrl = data.sprites.back_default;
 
-  res.render('poke-front', {pokename, pokeimage: frontImageUrl})
+  res.render('sprite', {pokename, frontImage: frontImageUrl, backImage: backImageUrl})
 });
 
 app.listen(port, () => {
