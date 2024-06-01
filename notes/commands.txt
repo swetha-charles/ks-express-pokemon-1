@@ -1,0 +1,4 @@
+$ npm init
+$ npm install express 
+$ npm install  -D typescript ts-node-dev @types/express nodemon
+$ npx tsc --init
