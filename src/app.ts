@@ -1,15 +1,10 @@
-import express, { Express, Request, Response, Application } from "express";
+import express, { Request, Response, Application } from "express";
 
 const app: Application = express();
 const port = 3000;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hi there!");
-});
-
-app.get("/hello/:name", (req: Request, res: Response) => {
-  const name = req.params.name;
-  res.send(`Hello ${name}`);
+  res.send("Hello there!");
 });
 
 app.listen(port, () => {
